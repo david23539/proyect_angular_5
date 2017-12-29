@@ -8,5 +8,4 @@ var md_upload = multipart({uploadDir:'./curso-angular4-avanzado-backend/uploads/
 
 api.get('/pruebas-animales', md_auth.ensureAuth, AnimalController.pruebas);
 
-
 module.exports = api;
