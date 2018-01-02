@@ -16,24 +16,32 @@ export class RegisterComponent implements OnInit {
     public title = "Registro";
     public user: User;
     public mensaje: string;
+
   constructor(private _userService:UserService ,private  _route: ActivatedRoute, private_router: Router) {
-    this.user =new User("","","","","","ROLE_USER","");
+    this.user = new User("","","","","","ROLE_USER","");
   }
 
   ngOnInit() {
 
   }
 
-  onSubmit(){
+  onSubmit(registerForm){
     this._userService.register(this.user).subscribe(
         response =>{
-          if(response.user._id) {
-              this.user = response.user;
-              this.mensaje = "El registro se ha realizado corectamente, identificate con "+ this.user
+          if(response) {
+             // this.user = response.user;
+              registerForm.reset();
+              this.mensaje = "success";
+
+              console.log("exito");
           }
+
         },
         error =>{
+            this.mensaje = "fail";
+            console.log(error.error.message);
           console.log(<any>error)
+
         }
     );
   }
