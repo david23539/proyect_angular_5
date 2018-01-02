@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { ModuleemailModule} from "./moduloemail/Components/moduloemail.module";
 import { AdminModule} from "./admin/admin.module";
 import { BrowserAnimationsModule} from "@angular/platform-browser/animations";
-
+import {UserService} from "./services/user.service";
 
 import { routing, appRoutingProviders} from "./app.routing";
 
@@ -52,7 +52,8 @@ import { RegisterComponent } from './components/register/register.component';
 
   ],
   providers: [
-    appRoutingProviders
+    appRoutingProviders,
+    UserService
   ],
   bootstrap: [AppComponent]
 })
