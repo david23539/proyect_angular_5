@@ -2,7 +2,7 @@
 
   <h1>{{title}}</h1>
   <div class="alert alert-success" *ngIf="mensaje == 'success'">
-    Registro completado con exito, <a [routerLink]="'[/login]'">Identificate aqui</a>
+    Registro completado con exito, <a [routerLink]="['/login']">Identificate aqui</a>
   </div>
 
   <div class="alert alert-danger" *ngIf="mensaje == 'fail'">
