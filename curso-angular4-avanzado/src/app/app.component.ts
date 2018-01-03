@@ -1,5 +1,6 @@
 import { Component, DoCheck, OnInit } from '@angular/core';
 import {UserService} from "./services/user.service";
+import { Router, ActivatedRoute, Params} from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -13,22 +14,29 @@ export class AppComponent implements DoCheck, OnInit{
   public emailContacto: string;
   public identity;
 
-  constructor(private _userService: UserService){
+  constructor(private _userService: UserService, private _route:ActivatedRoute, private _router:Router){
 
   }
 
   ngDoCheck(){
    // console.log("el docheck se ha lanzado");
-    this.emailContacto =  localStorage.getItem('emailContacto');
+      this.identity = this._userService.getidentity();
   }
 
   ngOnInit(){
     console.log(localStorage.getItem('emailContacto'))
-      this.identity = this._userService.getidentity();
+
   }
 
   vaciarLocalStorage() {
     localStorage.removeItem('emailContacto');
+
+
     console.log("localStorage borrado");
+  }
+  logout(){
+      localStorage.clear();
+      this.identity = null;
+      this._router.navigate(['/']);
   }
 }

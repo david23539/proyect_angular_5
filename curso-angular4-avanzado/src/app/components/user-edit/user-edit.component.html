@@ -1,0 +1,39 @@
+<div class="col-lg-6">
+<h1>{{title}}</h1>
+  <div class="alert alert-success" *ngIf="mensaje == 'success'">
+   Has actualizado tu informacion correctamente
+  </div>
+
+  <div class="alert alert-danger" *ngIf="mensaje == 'fail'">
+    No has actualizado tu informacion correctamente
+
+  </div>
+
+
+  <form #usereditForm="ngForm" (ngSubmit)="onSubmit()" class="col-lg-10">
+    <p>
+      <label for="name">Nombre</label>
+      <input name="name" #name="ngModel" [(ngModel)]="user.name" id="name" class="form-control" required/>
+      <span *ngIf="!name.valid && name.touched">
+          El nombre es obligatorio
+      </span>
+    </p>
+    <p>
+      <label for="surname">Apellidos</label>
+      <input name="surname" #surname="ngModel" [(ngModel)]=" user.surname" id="surname" class="form-control" required/>
+      <span *ngIf="!surname.valid && surname.touched">
+          Los apellidos son obligatorios
+      </span>
+    </p>
+    <p>
+      <label for="email">Email</label>
+      <input name="email" id="email" #email ="ngModel" [(ngModel)] = user.email class="form-control" required/>
+      <span *ngIf="!email.valid && email.touched">
+          El email es obligatorio
+      </span>
+    </p>
+
+
+    <input type="submit" value="{{title}}" class="btn btn-primary" [disabled]="!usereditForm.form.valid"/>
+  </form>
+</div>

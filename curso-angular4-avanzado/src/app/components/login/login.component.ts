@@ -14,7 +14,7 @@ export class LoginComponent implements OnInit {
   public identity;
   public token;
   public status: string;
-    constructor(private  _route: ActivatedRoute, private_router: Router, private _userService: UserService) {
+    constructor(private  _route: ActivatedRoute, private _router: Router, private _userService: UserService) {
         this.user = new User('','','','','','ROLE_USER','');
 
     }
@@ -44,6 +44,7 @@ export class LoginComponent implements OnInit {
                         }else{
                             localStorage.setItem('token', this.token);
                             this.status= 'success';
+                            this._router.navigate(['/']);
                         }
 
                     },error=>{

@@ -24,11 +24,11 @@
           <ul class="dropdown-menu">
             <li>
 
-              <a><span class="glyphicon glyphicon-cog"></span> Mis Datos</a>
+              <a [routerLink]="['/mis-datos']" class="pointer"><span class="glyphicon glyphicon-cog"></span> Mis Datos</a>
             </li>
             <li>
 
-              <a><span class="glyphicon glyphicon-log-out"></span> Salir</a>
+              <a class="pointer" (click)="logout()"><span class="glyphicon glyphicon-log-out"></span> Salir</a>
             </li>
 
           </ul>

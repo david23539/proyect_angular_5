@@ -22,6 +22,7 @@ import { KeepersComponent } from './components/keepers/keepers.component';
 import { SimpleTinyComponent } from './components/simple-tiny/simple-tiny.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
+import { UserEditComponent } from './components/user-edit/user-edit.component';
 
 
 
@@ -39,6 +40,7 @@ import { RegisterComponent } from './components/register/register.component';
     SimpleTinyComponent,
     LoginComponent,
     RegisterComponent,
+    UserEditComponent,
 
   ],
   imports: [

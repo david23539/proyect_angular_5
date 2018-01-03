@@ -53,6 +53,9 @@
   animation-iteration-count: infinite;
 
 }
+.pointer{
+  cursor: pointer;
+}
 /*@keyframes deslizamiento {  es una forma de hacer animaciones
   from {
     margin-left: 0px;
