@@ -20,8 +20,8 @@ const appRoutes : Routes = [
   {path: 'contacto', component: ContactoComponent},
   {path: 'animals', component: AnimalsComponent},
   {path: 'keepers', component: KeepersComponent},
-  {path: 'registro', component: RegisterComponent},
   {path: 'login', component: LoginComponent},
+  {path: 'registro', component: RegisterComponent},
   {path: '**', component: HomeComponent}
 
 ];
