@@ -49,4 +49,15 @@ export class UserService{
         }
         return this.token;
     }
+
+    updateUser(user_to_update){
+        delete user_to_update.password;
+        let params = JSON.stringify(user_to_update);
+
+        let headers = new HttpHeaders({
+            'Content-Type': 'application/json',
+            'Authorization': this.gettoken()
+        });
+        return this._http.put(this.url + 'update-user/'+user_to_update._id, params, {headers:headers});
+    }
 }

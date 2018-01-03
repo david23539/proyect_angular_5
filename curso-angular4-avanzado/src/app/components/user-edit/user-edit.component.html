@@ -1,10 +1,10 @@
 <div class="col-lg-6">
 <h1>{{title}}</h1>
-  <div class="alert alert-success" *ngIf="mensaje == 'success'">
+  <div class="alert alert-success" *ngIf="status == 'success'">
    Has actualizado tu informacion correctamente
   </div>
 
-  <div class="alert alert-danger" *ngIf="mensaje == 'fail'">
+  <div class="alert alert-danger" *ngIf="status == 'fail'">
     No has actualizado tu informacion correctamente
 
   </div>
@@ -31,6 +31,11 @@
       <span *ngIf="!email.valid && email.touched">
           El email es obligatorio
       </span>
+    </p>
+
+    <p>
+      <label for="imag">Imagen:</label>
+      <input type="file" id="imag" placeholder="Subir imagen" (change)="fileChangeevent($event)" />
     </p>
 
 

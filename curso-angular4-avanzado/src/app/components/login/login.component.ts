@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
             if(!this.identity.issetuser || !this.identity.issetuser._id){
               alert("El usuario no se ha logeado correctamente")
             }else{
-                this.identity.issetuser.password = '';
+                this.identity.issetuser.password = null;
                 console.log(this.identity.issetuser);
                 localStorage.setItem('identity', JSON.stringify(this.identity.issetuser));
                 this._userService.sigup(this.user, 'true').subscribe(
