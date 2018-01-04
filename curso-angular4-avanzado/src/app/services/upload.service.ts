@@ -14,23 +14,26 @@ export class UploadService{
         return new Promise(function (resolve, reject) {
             let fromData: any = new FormData();
             let xhr = new XMLHttpRequest();
-            for(let i=0; i <files.length; i++){
-                fromData.append(name, files[i], files[i].name);
-            }
+            if(files){
 
-            xhr.onreadystatechange = function () {
-                if(xhr.readyState == 4){
-                    if(xhr.status == 200){
-                        resolve(JSON.parse(xhr.response));
-                    }else{
-                        reject(xhr.response);
-                    }
+                for(let i=0; i <files.length; i++){
+                    fromData.append(name, files[i], files[i].name);
                 }
-            };
+                xhr.onreadystatechange = function () {
+                    if(xhr.readyState == 4){
+                        if(xhr.status == 200){
+                            resolve(JSON.parse(xhr.response));
+                        }else{
+                            reject(xhr.response);
+                        }
+                    }
+                };
 
-            xhr.open('POST', url, true);
-            xhr.setRequestHeader('Authorization', token);
-            xhr.send(fromData);
+                xhr.open('POST', url, true);
+                xhr.setRequestHeader('Authorization', token);
+                xhr.send(fromData);
+
+            }
         })
     }
 

@@ -33,6 +33,10 @@
       </span>
     </p>
 
+    <div  *ngIf="user.image && user.image != 'null'">
+      <img class="image_for_edit" src="{{url + 'get-image-file/'+ user.image}}" />
+    </div>
+
     <p>
       <label for="imag">Imagen:</label>
       <input type="file" id="imag" placeholder="Subir imagen" (change)="fileChangeevent($event)" />

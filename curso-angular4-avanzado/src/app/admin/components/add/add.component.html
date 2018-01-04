@@ -1,22 +1,42 @@
+<div class="col-lg-10">
+  <div class="alert alert-success" *ngIf="status == 'success'">
+    El animal se ha registrado correctamente
+  </div>
+
+  <div class="alert alert-error" *ngIf="status == 'error'">
+    El animal no se ha registrado correctamente
+  </div>
+
 <h3>{{title}}</h3>
-<form>
-  <p>
-    <label>Nombre</label>
-    <input class="form-control"/>
-  </p>
-  <p>
-    <label>Descripcion</label>
-    <textarea class="form-control"></textarea>
-  </p>
-  <p>
-    <label>Nombre</label>
-    <input class="form-control"/>
-  </p>
-  <p>
-    <label>Año</label>
-    <input class="form-control"/>
-  </p>
+  <form #formAdd="ngForm" (ngSubmit)="onSubmit()">
+    <p>
+      <label>Nombre</label>
+      <input #nombre="ngModel" name="name" [(ngModel)]="animal.name" class="form-control" required/>
+      <span *ngIf="!nombre.valid && nombre.touched">
+        No puede estar vacio
+      </span>
+    </p>
+    <p>
+      <label>Descripcion</label>
+      <textarea #descripcion="ngModel" name="descripcion" [(ngModel)]="animal.description" class="form-control" required></textarea>
+      <span *ngIf="!descripcion.valid && descripcion.touched">
+        No puede estar vacio
+      </span>
+    </p>
+    <p>
+      <label>Año</label>
+      <input #anio="ngModel" [(ngModel)]="animal.year" name="anio" class="form-control" required/>
+      <span *ngIf="!anio.valid && anio.touched">
+        No puede estar vacio
+      </span>
+    </p>
 
-  <input  class="btn btn-success" type="submit" value="Crear nuevo"/>
+    <p>
+      <label>Subir la imagen de la animal</label>
+      <input type="file" placeholder="Subir imagen" (change)="fileChangeevent($event)" />
+    </p>
 
-</form>
+    <input  class="btn btn-success" type="submit" value="Crear nuevo"/>
+
+  </form>
+</div>

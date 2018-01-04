@@ -121,6 +121,7 @@ function updateUser(req, res) {
 
     var userid = req.params.id;
     var update = req.body;
+    delete update.password;
     if(userid != req.user.sub){
         return res.status(500).send({message:'No tienes permiso para actualizar un usuario'});
     }else{

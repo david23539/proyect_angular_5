@@ -1,6 +1,7 @@
 import { Component, DoCheck, OnInit } from '@angular/core';
 import {UserService} from "./services/user.service";
 import { Router, ActivatedRoute, Params} from '@angular/router';
+import {GLOBAL} from "./services/global";
 
 @Component({
   selector: 'app-root',
@@ -13,9 +14,9 @@ export class AppComponent implements DoCheck, OnInit{
   title = 'NGZOO';
   public emailContacto: string;
   public identity;
-
+ public url: string
   constructor(private _userService: UserService, private _route:ActivatedRoute, private _router:Router){
-
+    this.url = GLOBAL.url;
   }
 
   ngDoCheck(){

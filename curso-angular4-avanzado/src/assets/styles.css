@@ -20,8 +20,22 @@
   border-bottom: 3px solid orange;
 }
 
+.image_for_edit{
+  width: 60px !important;
 
+}
 
+.avatar{
+  margin-top: 10px;
+  margin-right: 2px;
+  width: 35px;
+  height: 35px;
+  border-radius: 700px;
+  overflow: hidden;
+}
+.avatar img{
+  width: 45px;
+}
 .boton_transiciones{
   padding: 10px;
   background: red;

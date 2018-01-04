@@ -8,6 +8,8 @@ import { MainComponent} from "./components/main/main.component";
 import { AddComponent} from "./components/add/add.component";
 import { EditComponent} from "./components/edit/edit.component";
 import { ListComponent} from "./components/list/list.component";
+import { AdminGuard} from "../services/admin.guard";
+import {UploadService} from "../services/upload.service";
 
 @NgModule({
   imports: [
@@ -28,7 +30,8 @@ import { ListComponent} from "./components/list/list.component";
     HttpClientModule,
     AdminRoutingModule
   ],
-  providers:[]
+  providers:[AdminGuard,
+      UploadService]
 
 })
 export class AdminModule { }
