@@ -19,6 +19,8 @@ export class AddComponent implements OnInit {
   public token;
   public url;
   public status: string;
+  public is_edit = false;
+
   constructor(private _route: ActivatedRoute, private _router:Router, private userService: UserService,
               private animalService: AnimalService, private  uploads:UploadService) {
     this.animal = new Animal('','', 2017, '', '', '');

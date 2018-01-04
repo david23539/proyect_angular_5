@@ -3,6 +3,8 @@ import {HttpClient, HttpResponse, HttpHeaders, HttpRequest} from '@angular/commo
 import 'rxjs/add/operator/map';
 import { Observable} from "rxjs/Observable";
 import { GLOBAL} from "./global";
+import {RequestOptions} from "@angular/http";
+
 
 @Injectable()
 export class AnimalService {
@@ -28,4 +30,24 @@ export class AnimalService {
 
       return this._http.get(this.url+'animal/'+id);
   }
+
+  editAnimal(token, id, animal){
+    let params = JSON.stringify(animal);
+    let header = new HttpHeaders({
+        'Content-Type':'application/json',
+        'Authorization': token
+    });
+    return this._http.put(this.url + 'update-animal/'+id, params, {headers:header})
+  }
+
+  deleteAnimal(token, id){
+      let header = new HttpHeaders({
+          'Content-Type':'application/json',
+          'Authorization': token
+      });
+
+      return this._http.delete(this.url + 'animal/'+id, {headers:header});
+
+  }
+
 }

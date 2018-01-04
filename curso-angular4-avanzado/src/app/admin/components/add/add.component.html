@@ -30,13 +30,20 @@
         No puede estar vacio
       </span>
     </p>
+    <div *ngIf="is_edit && animal.image">
+      IMAGEN
+      <div>
+        <img class="image_for_edit" src="{{url + 'get-image-animal/'+ animal.image}}"/>
 
+      </div>
+    </div>
     <p>
       <label>Subir la imagen de la animal</label>
       <input type="file" placeholder="Subir imagen" (change)="fileChangeevent($event)" />
     </p>
 
-    <input  class="btn btn-success" type="submit" value="Crear nuevo"/>
+    <input  class="btn btn-success" type="submit" value="{{title}}"/>
+
 
   </form>
 </div>
