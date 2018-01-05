@@ -5,11 +5,13 @@ import { Router, ActivatedRoute, Params} from "@angular/router";
 import { GLOBAL} from "../../../services/global";
 import { Animal} from "../../../models/Animal";
 import {UploadService} from "../../../services/upload.service";
+import { fadeLateral} from "../../animationAdmin";
 
 @Component({
   selector: 'add',
   templateUrl: './add.component.html',
-    providers: [AnimalService, UserService, UserService]
+    providers: [AnimalService, UserService, UserService],
+    animations: [fadeLateral]
 })
 export class AddComponent implements OnInit {
 

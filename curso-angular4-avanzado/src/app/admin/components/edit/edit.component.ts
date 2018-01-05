@@ -5,10 +5,12 @@ import { Animal} from "../../../models/Animal";
 import {UploadService} from "../../../services/upload.service";
 import { AnimalService} from "../../../services/animal.service";
 import {UserService} from "../../../services/user.service";
+import {fadeLateral} from "../../animationAdmin";
 
 @Component({
   selector: 'edit',
   templateUrl: '../add/add.component.html',
+    animations: [fadeLateral],
     providers: [AnimalService, UserService, UserService]
 })
 export class EditComponent implements OnInit {

@@ -1,4 +1,4 @@
-<div class="col-lg-12">
+<div class="col-lg-12" [@fadeLateral]>
   <h3>{{title}}</h3>
   <div class="alert alert-success" *ngIf="status == 'success'">
     Elemento borrado
@@ -13,7 +13,8 @@
       <input [(ngModel)]="busqueda"/>
 
     </div>
-    <div class="col-lg-1">
+    <br>
+    <div class="col-lg-3 label label-success">
       Termino de busqueda <span>{{busqueda}}</span>
 
     </div>
@@ -29,7 +30,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let n of animal;">
+      <tr *ngFor="let n of animal | search: busqueda">
         <td>{{n.name}}</td>
         <td>{{n.year}}</td>
         <td>

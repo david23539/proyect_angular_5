@@ -5,12 +5,13 @@ import { GLOBAL} from "../../../services/global";
 import { Animal} from "../../../models/Animal";
 import {UploadService} from "../../../services/upload.service";
 import { UserService} from "../../../services/user.service";
-
+import {fadeLateral} from "../../animationAdmin";
 
 
 @Component({
   selector: 'list',
   templateUrl: './list.component.html',
+    animations: [fadeLateral],
     providers: [AnimalService, UserService]
 })
 export class ListComponent implements OnInit {
